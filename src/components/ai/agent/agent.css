@@ -1,0 +1,391 @@
+/* Agent F: ACP エージェントパネル (PHASE3A-SPEC 3.2)。クラス名は dx-agent- プレフィックス。色は必ず var(--xxx)。 */
+
+.dx-agent-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  font-family: var(--ui-font-family);
+  font-size: 13px;
+  color: var(--fg);
+}
+
+.dx-agent-view__header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dx-agent-view__agent {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.dx-agent-view__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.dx-agent-view__action {
+  padding: 4px 10px;
+  background: var(--input-bg);
+  color: var(--fg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.dx-agent-view__action:hover {
+  background: var(--hover-bg);
+  border-color: var(--focus-border);
+}
+
+/* --- プレースホルダ(エージェント未選択) ------------------------------------ */
+
+.dx-agent-placeholder {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+}
+
+.dx-agent-placeholder__text {
+  color: var(--fg);
+  font-size: 14px;
+  margin: 0;
+}
+
+.dx-agent-placeholder__hint {
+  color: var(--fg-muted);
+  font-size: 12px;
+  margin: 0;
+}
+
+.dx-agent-placeholder__error {
+  color: var(--error);
+  font-size: 12px;
+  margin: 0;
+}
+
+.dx-agent-placeholder__starting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.dx-agent-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.dx-agent-picker__button {
+  padding: 8px 16px;
+  background: var(--input-bg);
+  color: var(--fg);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.dx-agent-picker__button:hover:not(:disabled) {
+  background: var(--hover-bg);
+  border-color: var(--focus-border);
+}
+
+.dx-agent-picker__button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+/* --- メッセージ ------------------------------------------------------------- */
+
+.dx-agent-messages {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+
+.dx-agent-messages__empty {
+  color: var(--fg-muted);
+  font-size: 12px;
+  text-align: center;
+  padding: 16px;
+}
+
+.dx-agent-message {
+  display: flex;
+  max-width: 100%;
+}
+
+.dx-agent-message--user {
+  justify-content: flex-end;
+}
+
+.dx-agent-message--agent {
+  justify-content: flex-start;
+}
+
+.dx-agent-message__bubble {
+  max-width: 85%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.dx-agent-message--user .dx-agent-message__bubble {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.dx-agent-message--agent .dx-agent-message__bubble {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  color: var(--fg);
+}
+
+/* --- ツールコール ------------------------------------------------------------ */
+
+.dx-agent-toolcalls {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 10px 8px;
+  max-height: 40%;
+  overflow-y: auto;
+}
+
+.dx-agent-toolcall {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--panel-bg);
+}
+
+.dx-agent-toolcall__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 10px;
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  cursor: pointer;
+  font-size: 12px;
+  text-align: left;
+}
+
+.dx-agent-toolcall__header:hover {
+  background: var(--hover-bg);
+}
+
+.dx-agent-toolcall__chevron {
+  flex: 0 0 auto;
+  color: var(--fg-muted);
+  width: 12px;
+}
+
+.dx-agent-toolcall__title {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dx-agent-toolcall__badge {
+  flex: 0 0 auto;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-fg);
+}
+
+.dx-agent-toolcall__badge--pending {
+  background: var(--warning);
+}
+
+.dx-agent-toolcall__badge--in_progress {
+  background: var(--accent);
+}
+
+.dx-agent-toolcall__badge--completed {
+  background: var(--success);
+}
+
+.dx-agent-toolcall__badge--failed {
+  background: var(--error);
+}
+
+.dx-agent-toolcall__body {
+  padding: 8px 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dx-agent-toolcall__text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 12px;
+  color: var(--fg);
+}
+
+.dx-agent-toolcall__raw {
+  margin: 0;
+  padding: 8px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  font-family: var(--editor-font-family);
+  font-size: 11px;
+  overflow-x: auto;
+  color: var(--fg-muted);
+}
+
+.dx-agent-toolcall__empty {
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+
+/* --- diff プレビュー --------------------------------------------------------- */
+
+.dx-agent-diff {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dx-agent-diff__path {
+  padding: 4px 8px;
+  font-family: var(--editor-font-family);
+  font-size: 11px;
+  color: var(--fg-muted);
+  background: var(--input-bg);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dx-agent-diff__editor {
+  height: 240px;
+}
+
+/* --- permission プロンプト --------------------------------------------------- */
+
+.dx-agent-permission {
+  flex: 0 0 auto;
+  margin: 0 10px 8px;
+  padding: 10px;
+  background: var(--panel-bg);
+  border: 1px solid var(--warning);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dx-agent-permission__title {
+  font-weight: 600;
+  color: var(--fg);
+  font-size: 13px;
+}
+
+.dx-agent-permission__target {
+  font-size: 12px;
+  color: var(--fg-muted);
+  font-family: var(--editor-font-family);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dx-agent-permission__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dx-agent-permission__option {
+  padding: 5px 12px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.dx-agent-permission__option:hover {
+  filter: brightness(1.1);
+}
+
+/* --- 入力欄 ------------------------------------------------------------------ */
+
+.dx-agent-input {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 8px 10px;
+  border-top: 1px solid var(--border);
+}
+
+.dx-agent-input__textarea {
+  flex: 1 1 auto;
+  resize: none;
+  padding: 8px 10px;
+  font-family: var(--ui-font-family);
+  font-size: 13px;
+  color: var(--fg);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  outline: none;
+}
+
+.dx-agent-input__textarea:focus {
+  border-color: var(--focus-border);
+}
+
+.dx-agent-input__send {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.dx-agent-input__send:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.dx-agent-input__send:disabled {
+  cursor: default;
+  opacity: 0.5;
+}

@@ -1,0 +1,52 @@
+.dx-toast-host {
+  position: absolute;
+  right: 16px;
+  bottom: 38px;
+  z-index: 1000;
+  display: flex;
+  width: min(420px, calc(100vw - 32px));
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dx-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  background: var(--panel-bg);
+  box-shadow: 0 8px 24px var(--shadow);
+  color: var(--fg);
+  padding: 10px 10px 10px 12px;
+  font-size: 13px;
+}
+
+.dx-toast--error {
+  border-left-color: var(--error);
+}
+
+.dx-toast--success {
+  border-left-color: var(--success);
+}
+
+.dx-toast__message {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.dx-toast__dismiss {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: var(--fg-muted);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.dx-toast__dismiss:hover {
+  color: var(--fg);
+}

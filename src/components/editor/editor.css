@@ -1,0 +1,168 @@
+/* Agent D 所有(PHASE1-SPEC 3.4 / 6.3)。クラス名は dx-editor- プレフィックス。色は必ず var(--xxx)。 */
+
+.dx-editor-tabs {
+  display: flex;
+  flex: 0 0 35px;
+  height: 35px;
+  background: var(--tab-bar-bg);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.dx-editor-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  height: 100%;
+  min-width: 120px;
+  max-width: 200px;
+  flex: 0 0 auto;
+  border-right: 1px solid var(--border);
+  color: var(--tab-inactive-fg);
+  cursor: pointer;
+  user-select: none;
+}
+
+.dx-editor-tab--active {
+  background: var(--tab-active-bg);
+  color: var(--tab-active-fg);
+}
+
+.dx-editor-tab:hover:not(.dx-editor-tab--active) {
+  background: var(--hover-bg);
+}
+
+.dx-editor-tab__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: 0 0 auto;
+}
+
+.dx-editor-tab__saving-indicator {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border: 1px solid var(--accent);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: dx-editor-tab-spin 0.8s linear infinite;
+}
+
+.dx-editor-tab__error-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--error);
+  color: var(--accent-fg);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dx-editor-tab__name {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.dx-editor-tab__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.dx-editor-tab:hover .dx-editor-tab__close,
+.dx-editor-tab--active .dx-editor-tab__close {
+  opacity: 1;
+}
+
+.dx-editor-tab__close:hover {
+  background: var(--hover-bg);
+}
+
+.dx-editor-pane {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+}
+
+.dx-editor-pane--loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-muted);
+  font-size: 13px;
+}
+
+@keyframes dx-editor-tab-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dx-editor-tab__saving-indicator {
+    animation: none;
+  }
+}
+
+.dx-editor-welcome {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  color: var(--fg-muted);
+  user-select: none;
+}
+
+.dx-editor-welcome__mark {
+  font-family: var(--editor-font-family);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -1px;
+}
+
+.dx-editor-welcome__shortcuts {
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.dx-editor-welcome__key {
+  font-family: var(--editor-font-family);
+  font-size: 13px;
+  color: var(--accent);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dx-editor-welcome__desc {
+  font-size: 13px;
+  color: var(--fg-muted);
+  padding-left: 16px;
+}

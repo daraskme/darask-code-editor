@@ -1,0 +1,72 @@
+.dx-dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1100;
+  display: grid;
+  place-items: center;
+  background: var(--shadow);
+  padding: 20px;
+}
+
+.dx-dialog {
+  width: min(440px, 100%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-bg);
+  box-shadow: 0 16px 40px var(--shadow);
+  color: var(--fg);
+  padding: 20px;
+}
+
+.dx-dialog__title {
+  margin: 0;
+  font-size: 16px;
+}
+
+.dx-dialog__description {
+  margin: 10px 0 0;
+  color: var(--fg-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.dx-dialog__file-list {
+  max-height: 144px;
+  margin: 12px 0 0;
+  overflow: auto;
+  padding-left: 20px;
+  color: var(--fg-muted);
+  font-family: var(--editor-font-family);
+  font-size: 12px;
+}
+
+.dx-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dx-dialog__button {
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background: var(--panel-bg);
+  color: var(--fg);
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+.dx-dialog__button:hover {
+  background: var(--hover-bg);
+}
+
+.dx-dialog__button--primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.dx-dialog__button--danger {
+  border-color: var(--error);
+  color: var(--error);
+}

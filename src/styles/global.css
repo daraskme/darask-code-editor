@@ -1,0 +1,274 @@
+/* リセット */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ui-font-family);
+  color: var(--fg);
+  background: var(--app-bg);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
+}
+
+/* スクロールバー */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 6px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+/* レイアウト骨格(6.1) */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.app-shell__body {
+  flex: 1 1 auto;
+  display: flex;
+  min-height: 0;
+}
+
+/* ActivityBar */
+.activity-bar {
+  flex: 0 0 48px;
+  width: 48px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+  gap: 4px;
+}
+
+.activity-bar__button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--fg-muted);
+  position: relative;
+}
+
+.activity-bar__button:hover:not(:disabled) {
+  background: var(--hover-bg);
+  color: var(--fg);
+}
+
+.activity-bar__button--active {
+  color: var(--fg);
+  background: var(--active-bg);
+}
+
+.activity-bar__button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.activity-bar__button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* SideBar */
+.sidebar {
+  flex: 0 0 auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  min-width: 180px;
+  max-width: 500px;
+  overflow: auto;
+  position: relative;
+}
+
+.sidebar__resize-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 10;
+}
+
+.sidebar__resize-handle:hover,
+.sidebar__resize-handle--active {
+  background: var(--focus-border);
+}
+
+/* MainArea */
+.main-area {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--app-bg);
+}
+
+/* StatusBar */
+.status-bar {
+  flex: 0 0 22px;
+  height: 22px;
+  background: var(--statusbar-bg);
+  color: var(--statusbar-fg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  font-size: 12px;
+  user-select: none;
+}
+
+.status-bar__left,
+.status-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+}
+
+.status-bar__item {
+  cursor: default;
+  white-space: nowrap;
+}
+
+.status-bar__item--clickable {
+  cursor: pointer;
+}
+
+.status-bar__item--clickable:hover {
+  text-decoration: underline;
+}
+
+/* AiPanel(Phase3a) */
+.ai-panel {
+  flex: 0 0 360px;
+  width: 360px;
+  background: var(--panel-bg);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.ai-panel__tabs {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.ai-panel__tab {
+  flex: 1 1 auto;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 8px 4px;
+  cursor: pointer;
+  color: var(--fg-muted);
+  font-size: 12px;
+}
+
+.ai-panel__tab:hover {
+  color: var(--fg);
+  background: var(--hover-bg);
+}
+
+.ai-panel__tab--active {
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
+
+.ai-panel__close {
+  flex: 0 0 auto;
+  background: transparent;
+  border: none;
+  color: var(--fg-muted);
+  cursor: pointer;
+  padding: 4px 10px;
+  font-size: 14px;
+}
+
+.ai-panel__close:hover {
+  color: var(--fg);
+}
+
+.ai-panel__content {
+  flex: 1 1 auto;
+  overflow: auto;
+  min-height: 0;
+}
+
+.ai-panel__placeholder {
+  padding: 16px;
+  color: var(--fg-muted);
+  font-size: 13px;
+}
+
+.dx-error-boundary {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--fg);
+}
+
+.dx-error-boundary__title {
+  font-weight: 600;
+  color: var(--error);
+}
+
+.dx-error-boundary__message {
+  font-size: 12px;
+  color: var(--fg-muted);
+  word-break: break-word;
+}
+
+.dx-error-boundary__retry {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--panel-bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.dx-error-boundary__retry:hover {
+  background: var(--hover-bg);
+}

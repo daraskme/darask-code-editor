@@ -1,0 +1,168 @@
+/* Agent E: Provider 設定 UI (PHASE3A-SPEC.md 3.1) */
+
+.dx-settings-panel {
+  height: 100%;
+  overflow: auto;
+  padding: 12px;
+  font-family: var(--ui-font-family);
+  font-size: 13px;
+  color: var(--fg);
+  box-sizing: border-box;
+}
+
+.dx-settings-panel__title {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.dx-settings-panel__hint {
+  margin: 0 0 16px;
+  font-size: 12px;
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+
+.dx-settings-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.dx-settings-row__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dx-settings-row__label {
+  font-weight: 600;
+  color: var(--fg);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.dx-settings-row__help-link {
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--accent);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.dx-settings-row__help-link:hover {
+  filter: brightness(1.15);
+}
+
+.dx-settings-row__help-link:focus-visible {
+  outline: 1px solid var(--focus-border);
+  outline-offset: 2px;
+}
+
+.dx-settings-status {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.dx-settings-status--muted {
+  color: var(--fg-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.dx-settings-status--success {
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.dx-settings-status--error {
+  color: var(--error);
+  border: 1px solid var(--error);
+}
+
+.dx-settings-row__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dx-settings-row__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dx-settings-row__field-label {
+  font-size: 11px;
+  color: var(--fg-muted);
+}
+
+.dx-settings-row__input {
+  padding: 6px 8px;
+  background: var(--input-bg);
+  color: var(--fg);
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  font-family: var(--ui-font-family);
+  font-size: 13px;
+}
+
+.dx-settings-row__input:focus-visible {
+  outline: 1px solid var(--focus-border);
+  outline-offset: 1px;
+}
+
+.dx-settings-row__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.dx-settings-row__btn {
+  padding: 6px 12px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.dx-settings-row__btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.dx-settings-row__btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.dx-settings-row__btn--secondary {
+  background: var(--input-bg);
+  color: var(--fg);
+  border: 1px solid var(--input-border);
+}
+
+.dx-settings-row__btn--secondary:hover:not(:disabled) {
+  background: var(--hover-bg);
+  border-color: var(--focus-border);
+}
+
+.dx-settings-row__btn:focus-visible {
+  outline: 1px solid var(--focus-border);
+  outline-offset: 1px;
+}
