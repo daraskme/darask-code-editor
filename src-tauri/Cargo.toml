@@ -1,6 +1,6 @@
 [package]
 name = "darask"
-version = "0.1.0-beta.1"
+version = "0.1.0-beta.2"
 description = "Darask Code Editor"
 edition = "2021"
 
